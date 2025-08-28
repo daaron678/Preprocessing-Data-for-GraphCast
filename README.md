@@ -29,3 +29,11 @@ The workflow for preprocessing is as follows:
 Now open 'preprocessing.ipynb' and follow the steps listed there. An overview of each function is given: 
 
 * `merge_single_ins_accum(input_folder, output_folder)`: function used to merge each single-level folder with components of an instant file and accumulated file into a single-level file. There should be 3 distinct single-level files within the output_folder after this step.
+
+# Cloud Computing Using HiPerGator
+
+* The merged dataset file should be uploaded to the user's blue storage in HiPerGator using the following command on a Linux shell terminal: `rsync -z [path to local file] [username]@hpg.rc.ufl.edu:[path to directory on HiPerGator]`. If using Bash, rsync must be installed. If using Window's Subsystem Linux (WSL), rsync is already available. Use 'wsl --install' if wsl is not already installed. Rsync allows large local files to be compressed and uploaded to a cloud system.
+* Source files such as 'graphcast_demo.ipynb' (used to run GraphCast model and provided by Google's GraphCast git repo) can be uploaded with the user's home directory on HiPerGator, while input files should be uploaded to blue storage. To move a local file to HiPerGator, open a new terminal and use the command `scp [path to local file] [username]@hpg.rc.ufl.edu:[path to destination on HiPerGator]`.
+* Some operations such as beginning an interactive session to run Jupyter Notebook can be done on HiPerGator's ondemand GUI; however the GUI can often fail to complete operations such as job script edits and moving files. So, it is useful to peform copying operations as well as checking the job request by connecting to the HiPerGator interface on the command line. To do this, open a terminal and login to HiPerGator using `ssh [username]@hpg.rc.ufl.edu`.
+* Setting up environmental modules within Jupyter Notebook: 
+
